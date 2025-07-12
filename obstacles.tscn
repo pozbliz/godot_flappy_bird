@@ -28,6 +28,8 @@ shape = SubResource("RectangleShape2D_g48ay")
 [node name="BottomCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_v3q82")
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
 [node name="ScoreArea" type="Area2D" parent="."]
 script = ExtResource("4_wh1ty")
 

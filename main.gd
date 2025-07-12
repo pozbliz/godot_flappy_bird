@@ -1,14 +1,18 @@
 extends Node
 
 
-# Called when the node enters the scene tree for the first time.
+@export var pipe_scene: PackedScene
+
 func _ready() -> void:
-	pass # Replace with function body.
+	$ObstacleTimer.timeout.connect(_on_obstacle_timer_timeout)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func _on_obstacle_timer_timeout():
-	$Obstacles.setup_random_pipes()
+	print("Spawning pipes")
+	spawn_pipes()
+	
+func spawn_pipes():
+	var pipes = pipe_scene.instantiate()
+	add_child(pipes)

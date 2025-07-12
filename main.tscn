@@ -6,6 +6,7 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_h2yge")
+pipe_scene = ExtResource("2_h2yge")
 
 [node name="Player" parent="." instance=ExtResource("1_0xm2m")]
 position = Vector2(240, 320)
@@ -14,3 +15,4 @@ position = Vector2(240, 320)
 
 [node name="ObstacleTimer" type="Timer" parent="."]
 wait_time = 2.0
+autostart = true
