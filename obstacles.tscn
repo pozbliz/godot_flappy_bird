@@ -30,7 +30,7 @@ func _on_score_area_area_entered():
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh1ty"]
 size = Vector2(19, 150)
 
-[node name="Obstacles" type="StaticBody2D"]
+[node name="Obstacles" type="Area2D"]
 script = ExtResource("1_v3q82")
 
 [node name="TopPipe" type="Sprite2D" parent="."]
@@ -46,8 +46,6 @@ shape = SubResource("RectangleShape2D_g48ay")
 
 [node name="BottomCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_v3q82")
-
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
 [node name="ScoreArea" type="Area2D" parent="."]
 script = SubResource("GDScript_v3q82")
