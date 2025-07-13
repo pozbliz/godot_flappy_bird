@@ -30,7 +30,7 @@ func _on_score_area_area_entered():
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh1ty"]
 size = Vector2(19, 150)
 
-[node name="Obstacles" type="Area2D"]
+[node name="Obstacles" type="Area2D" groups=["obstacles"]]
 script = ExtResource("1_v3q82")
 
 [node name="TopPipe" type="Sprite2D" parent="."]

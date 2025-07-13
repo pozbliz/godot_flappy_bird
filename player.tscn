@@ -70,8 +70,8 @@ script = ExtResource("1_onrkg")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_b26j0")
-frame = 3
-frame_progress = 0.226671
+frame = 6
+frame_progress = 0.839807
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n7ghd")

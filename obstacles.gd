@@ -15,6 +15,7 @@ signal player_hit
 
 
 func _ready() -> void:
+	add_to_group("obstacles")
 	screen_height = get_viewport_rect().size.y
 	
 	$ScoreArea.body_entered.connect(_on_score_body_entered)
@@ -30,10 +31,10 @@ func _process(delta: float) -> void:
 
 func setup_random_pipes():
 	# Horizontal start position just outside screen
-	position.x = get_viewport_rect().size.x
+	position.x = get_viewport_rect().size.x + 100
 	
 	# Vertical position of the random gap
-	var gap_position: float = randf_range(-100.0, 100.0)
+	var gap_position: float = randf_range(-150.0, 150.0)
 	
 	var score_area 
 	
