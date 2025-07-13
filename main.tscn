@@ -1,15 +1,52 @@
-[gd_scene load_steps=7 format=3 uid="uid://bk63u704igigr"]
+[gd_scene load_steps=14 format=3 uid="uid://bk63u704igigr"]
 
 [ext_resource type="PackedScene" uid="uid://bjdufja0ibss" path="res://player.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://c7dwexoj7gxmx" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dslvnlms72w7n" path="res://obstacles.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://btqih2wim45yb" path="res://parallax_background.gd" id="3_4c57u"]
+[ext_resource type="Texture2D" uid="uid://2cbcptk1kyym" path="res://art/background/sunny-mountains-sky.png" id="3_kek77"]
 [ext_resource type="PackedScene" uid="uid://hx3uj7in4g4t" path="res://main_menu.tscn" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://ovj1vpngmpgf" path="res://art/background/sunny-mountains-far-back.png" id="4_4c57u"]
 [ext_resource type="PackedScene" uid="uid://b0abkb1bsmuoc" path="res://hud.tscn" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cou2qvqol4o7a" path="res://art/background/sunny-mountains-hills.png" id="5_efxa6"]
 [ext_resource type="PackedScene" uid="uid://df2bs27wl2sx0" path="res://walls.tscn" id="6_7mycd"]
+[ext_resource type="AudioStream" uid="uid://c8mkkwl8vbetk" path="res://sounds/gameover.wav" id="11_efxa6"]
+[ext_resource type="AudioStream" uid="uid://ca464y5a127r4" path="res://sounds/House In a Forest Loop.ogg" id="12_dg77c"]
+[ext_resource type="AudioStream" uid="uid://dqd52kn8bm0rl" path="res://sounds/SE-Collision_08C.ogg" id="13_ycdy4"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_h2yge")
 pipe_scene = ExtResource("2_h2yge")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("3_4c57u")
+
+[node name="Back" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(768, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Back"]
+scale = Vector2(3, 3)
+texture = ExtResource("3_kek77")
+centered = false
+
+[node name="Middle" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(768, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Middle"]
+scale = Vector2(3, 3)
+texture = ExtResource("4_4c57u")
+centered = false
+
+[node name="Fore" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(768, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Fore"]
+scale = Vector2(3, 3)
+texture = ExtResource("5_efxa6")
+centered = false
 
 [node name="Player" parent="." instance=ExtResource("1_0xm2m")]
 position = Vector2(240, 320)
@@ -25,3 +62,14 @@ wait_time = 2.0
 [node name="MainMenu" parent="." instance=ExtResource("4_1bvp3")]
 
 [node name="Walls" parent="." instance=ExtResource("6_7mycd")]
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_efxa6")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_dg77c")
+parameters/looping = true
+
+[node name="PointSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_ycdy4")
+pitch_scale = 4.0

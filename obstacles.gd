@@ -36,8 +36,6 @@ func setup_random_pipes():
 	# Vertical position of the random gap
 	var gap_position: float = randf_range(-150.0, 150.0)
 	
-	var score_area 
-	
 	var top_height = (screen_height / 2) + gap_position - (GAP_SIZE / 2)
 	var bottom_height = (screen_height / 2) - gap_position - (GAP_SIZE / 2)
 	

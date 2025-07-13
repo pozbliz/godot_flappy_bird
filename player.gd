@@ -11,7 +11,6 @@ func _physics_process(delta: float) -> void:
 	# Only apply gravity if game has started
 	if not is_on_floor() and gravity_enabled:
 		velocity += get_gravity() * delta
-		print("velocity: ", velocity)
 	
 	if Input.is_action_just_pressed("flap"):
 		if not game_started:
@@ -30,9 +29,14 @@ func start_game():
 func flap():
 	if game_started:
 		velocity.y = JUMP_VELOCITY
-		$AnimatedSprite2D.play()
 	
 func start(pos):
 	position = pos
 	game_started = false
+	$AnimatedSprite2D.play("default")
 	show()
+	
+func play_death_animation():
+	$AnimatedSprite2D.play("death")
+	await $AnimatedSprite2D.animation_finished
+	hide()

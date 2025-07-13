@@ -24,6 +24,8 @@ func new_game():
 	score = 0
 	$Player.start($PlayerStartPosition.position)
 	$HUD.show_message("Press SPACEBAR to flap through the gaps!")
+	$BackgroundMusic.play()
+	$ParallaxBackground.start_scrolling()
 	
 	$ObstacleTimer.start()
 
@@ -40,20 +42,25 @@ func spawn_pipes():
 func _on_obstacles_increase_score():
 	score += 1
 	$HUD.update_score(score)
+	$PointSound.play()
 	
 func game_over():
+	$ParallaxBackground.stop_scrolling()
+	$BackgroundMusic.stop()
+	$GameOverSound.play()
 	$Player.game_started = false
 	$ObstacleTimer.stop()
 	get_tree().call_group("obstacles", "queue_free")
-	$Player.hide()
 	await $HUD.show_game_over()
 	$HUD.hide()
 	$MainMenu.show()
 	
 func _on_obstacles_player_hit():
+	$Player.play_death_animation()
 	game_over()
 	
 func _on_walls_body_entered(body):
+	$Player.play_death_animation()
 	game_over()
 	
 func _on_main_menu_new_game():
