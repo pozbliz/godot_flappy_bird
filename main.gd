@@ -49,6 +49,7 @@ func game_over():
 	$BackgroundMusic.stop()
 	$GameOverSound.play()
 	$Player.game_started = false
+	$Player.disable_input()
 	$ObstacleTimer.stop()
 	get_tree().call_group("obstacles", "queue_free")
 	await $HUD.show_game_over()
