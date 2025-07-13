@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk63u704igigr"]
+[gd_scene load_steps=6 format=3 uid="uid://bk63u704igigr"]
 
 [ext_resource type="PackedScene" uid="uid://bjdufja0ibss" path="res://player.tscn" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://c7dwexoj7gxmx" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dslvnlms72w7n" path="res://obstacles.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://hx3uj7in4g4t" path="res://main_menu.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b0abkb1bsmuoc" path="res://hud.tscn" id="4_lquwl"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_h2yge")
@@ -14,8 +15,12 @@ position = Vector2(240, 320)
 
 [node name="Obstacles" parent="." instance=ExtResource("2_h2yge")]
 
+[node name="PlayerStartPosition" type="Marker2D" parent="."]
+position = Vector2(240, 320)
+
 [node name="ObstacleTimer" type="Timer" parent="."]
 wait_time = 2.0
-autostart = true
+
+[node name="HUD" parent="." instance=ExtResource("4_lquwl")]
 
 [node name="MainMenu" parent="." instance=ExtResource("4_1bvp3")]

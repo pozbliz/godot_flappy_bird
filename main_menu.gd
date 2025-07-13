@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 
+signal new_game
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$VBoxContainer/StartGameButton.pressed.connect(_on_start_game_button_pressed)
@@ -13,11 +15,10 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_start_game_button_pressed():
-	hide()
-	get_tree().change_scene_to_file("res://main.tscn")
+	new_game.emit()
 	
 func _on_options_button_pressed():
-	pass
+	pass	
 	
 func _on_exit_game_button_pressed():
 	get_tree().quit()

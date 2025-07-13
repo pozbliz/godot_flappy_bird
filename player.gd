@@ -13,7 +13,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("flap"):
 		velocity.y = JUMP_VELOCITY
 
-	var direction := 1
-	velocity.x = direction * SPEED
+	#var direction := 1
+	#velocity.x = direction * SPEED
 
 	move_and_slide()
+	
+func start(pos):
+	position = pos
+	show()

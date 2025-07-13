@@ -3,13 +3,29 @@
 [ext_resource type="Texture2D" uid="uid://cmhjsdao8wrxb" path="res://art/pillar1.png" id="1_g48ay"]
 [ext_resource type="Script" uid="uid://dlywnqbt0080m" path="res://obstacles.gd" id="1_v3q82"]
 [ext_resource type="Texture2D" uid="uid://yk5khlm5cc5k" path="res://art/pillar2.png" id="2_v3q82"]
-[ext_resource type="Script" uid="uid://bft2lc5n0yxhr" path="res://score_area.gd" id="4_wh1ty"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g48ay"]
 size = Vector2(36, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3q82"]
 size = Vector2(36, 46)
+
+[sub_resource type="GDScript" id="GDScript_v3q82"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _on_score_area_area_entered():
+	pass
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh1ty"]
 size = Vector2(19, 150)
@@ -34,7 +50,7 @@ shape = SubResource("RectangleShape2D_v3q82")
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 
 [node name="ScoreArea" type="Area2D" parent="."]
-script = ExtResource("4_wh1ty")
+script = SubResource("GDScript_v3q82")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
 shape = SubResource("RectangleShape2D_wh1ty")
