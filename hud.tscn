@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0abkb1bsmuoc"]
+
+[ext_resource type="Script" uid="uid://cq2siglg701b5" path="res://hud.gd" id="1_37p78"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_37p78")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Message" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="MessageTimer" type="Timer" parent="."]

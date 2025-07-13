@@ -8,11 +8,18 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	pass
+	
+func new_game():
+	$MainMenu.hide()
+	$HUD.show()
+	$Obstacles.show()
+	$Player.show()
 
 func _on_obstacle_timer_timeout():
-	print("Spawning pipes")
+	print("Obstacle timer timeout")
 	spawn_pipes()
 	
 func spawn_pipes():
+	print("Spawning pipes")
 	var pipes = pipe_scene.instantiate()
 	add_child(pipes)
