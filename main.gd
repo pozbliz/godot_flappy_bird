@@ -2,6 +2,7 @@ extends Node
 
 
 @export var pipe_scene: PackedScene
+@onready var highscore: int = 0
 var score: int
 
 func _ready() -> void:
@@ -22,6 +23,7 @@ func new_game():
 	$Player.show()
 	
 	score = 0
+	$HUD.update_score(score)
 	$Player.start($PlayerStartPosition.position)
 	$HUD.show_message("Press SPACEBAR to flap through the gaps!")
 	$BackgroundMusic.play()
@@ -55,6 +57,9 @@ func game_over():
 	await $HUD.show_game_over()
 	$HUD.hide()
 	$MainMenu.show()
+	if score > highscore:
+		highscore = score
+	$HUD.update_highscore(highscore)
 	
 func _on_obstacles_player_hit():
 	$Player.play_death_animation()

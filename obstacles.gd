@@ -2,7 +2,7 @@ extends Area2D
 
 
 const GAP_SIZE: int = 150
-const PIPE_SPEED: int = 200
+const PIPE_SPEED: int = 180
 var screen_height: int
 
 @onready var top_pipe = $TopPipe
@@ -26,7 +26,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position.x -= PIPE_SPEED * delta
 	
-	if position.x < - 200:
+	if position.x < -200:
 		queue_free()
 
 func setup_random_pipes():

@@ -1,7 +1,7 @@
 extends ParallaxBackground
 
 
-const SCROLL_SPEED: float = 200.0
+const SCROLL_SPEED: float = 180.0
 var is_scrolling: bool = false
 
 func _process(delta):

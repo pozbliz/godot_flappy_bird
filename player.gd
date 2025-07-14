@@ -25,6 +25,11 @@ func _physics_process(delta: float) -> void:
 func start_game():
 	game_started = true
 	gravity_enabled = true
+	
+	 
+	
+	
+	
 	flap()
 
 func flap():

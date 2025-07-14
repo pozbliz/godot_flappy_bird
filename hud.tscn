@@ -34,5 +34,24 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_64ctp")
 theme_override_font_sizes/font_size = 18
 
+[node name="HighscoreLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("2_64ctp")
+text = "0"
+
+[node name="HighscoreLabelText" type="Label" parent="."]
+offset_left = 301.0
+offset_right = 386.0
+offset_bottom = 23.0
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("2_64ctp")
+text = "Highscore"
+
 [node name="MessageTimer" type="Timer" parent="."]
 wait_time = 3.0
